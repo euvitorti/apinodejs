@@ -15,5 +15,3 @@ exports.put = (req, res, next) => {
 exports.delet = (req, res, next) => {
     res.status(200).send(req.body);
 };
-
-//HrrKcAYMk6ZRhv7p
