@@ -13,7 +13,7 @@ const router = express.Router();
 mongoose.connect('mongodb+srv://jvitorti03:HrrKcAYMk6ZRhv7p@cluster0.7ehwal0.mongodb.net/?retryWrites=true&w=majority');
 
 // CARREGA OS MODELS
-const Product = require('.models/product');
+const Product = require('./models/product');
 
 // CARREGA AS ROTAS
 const indexRoute = require('./routes/index-route');
