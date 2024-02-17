@@ -1,6 +1,12 @@
 'use strict';
 
+const { Mongoose } = require("mongoose");
+
+// IMPORTANDO O SCHEMA
+const Product = Mongoose.model('Product');
+
 exports.post = (req, res, next) => {
+    
     res.status(201).send(req.body);
 };
 
