@@ -1,9 +1,8 @@
 'use strict';
 
-const { Mongoose } = require("mongoose");
-
 // IMPORTANDO O SCHEMA
-const Product = Mongoose.model('Product');
+const mongoose = require('mongoose');
+const Product = mongoose.model('Product');
 
 // LISTANDO TODOS OS PRODUTOS - BUSCAR TUDO
 exports.get = (req, res, next) => {
@@ -19,8 +18,17 @@ exports.get = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
-    
-    res.status(201).send(req.body);
+    var product = new Product(req.body);
+    product
+        .save()
+        .then(x => {
+            res.status(201).send({ message: 'Produto cadastrado com sucesso!' });
+        }).catch(e => {
+            res.status(400).send({
+                message: 'Falha ao cadastrar o produto!',
+                data: e
+            });
+        });
 };
 
 exports.put = (req, res, next) => {

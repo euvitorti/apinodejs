@@ -9,11 +9,11 @@ const mongoose = require('mongoose');
 const app = express();
 const router = express.Router();
 
-// CARREGA OS MODELS
-const Product = require('./models/product');    
-
 // CONECTA AO BANCO
-mongoose.connect(/* SUA URL DO BANCO DE DADOS MONGODB*/);
+mongoose.connect('mongodb+srv://jvitorti03:4YYNgMMjhhy7FbXj@cluster0.av48chp.mongodb.net/?retryWrites=true&w=majority');
+
+// CARREGA OS MODELS
+const Product = require('./models/product');
 
 // CARREGA AS ROTAS
 const indexRoute = require('./routes/index-route');
