@@ -1,6 +1,6 @@
 'use strict';
 
-const Mongoose = require("mongoose");
+const { Mongoose } = require("mongoose");
 
 // IMPORTANDO O SCHEMA
 const Product = Mongoose.model('Product');
@@ -19,19 +19,8 @@ exports.get = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
-    var product = new Product(req.body);
-    product
-        .save()
-        .then(x => {
-            res.status(201).send({
-                message: 'Produto cadastrado com sucesso!'
-            });
-        }).catch(e => {
-            res.status(400).send({
-                message: 'Não foi possível cadastrar o produto',
-                data: e
-            });
-        });
+    
+    res.status(201).send(req.body);
 };
 
 exports.put = (req, res, next) => {
