@@ -10,7 +10,10 @@ const app = express();
 const router = express.Router();
 
 // CARREGA OS MODELS
-const Product = require('./models/product');
+const Product = require('./models/product');    
+
+// CONECTA AO BANCO
+mongoose.connect(/* SUA URL DO BANCO DE DADOS MONGODB*/);
 
 // CARREGA AS ROTAS
 const indexRoute = require('./routes/index-route');
