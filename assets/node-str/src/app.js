@@ -9,9 +9,6 @@ const mongoose = require('mongoose');
 const app = express();
 const router = express.Router();
 
-// CONEXÃO COM O BANCO DE DADOS - HrrKcAYMk6ZRhv7p
-mongoose.connect('mongodb+srv://jvitorti03:HrrKcAYMk6ZRhv7p@cluster0.7ehwal0.mongodb.net/?retryWrites=true&w=majority');
-
 // CARREGA OS MODELS
 const Product = require('./models/product');
 
