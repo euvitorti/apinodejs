@@ -5,6 +5,19 @@ const Mongoose = require("mongoose");
 // IMPORTANDO O SCHEMA
 const Product = Mongoose.model('Product');
 
+// LISTANDO TODOS OS PRODUTOS - BUSCAR TUDO
+exports.get = (req, res, next) => {
+    Product
+        .find({
+            active: true
+        }, 'title price slug')
+        .then(data => {
+            res.status(200).send(data);
+        }).catch(e => {
+            res.status(400).send(e);
+        });
+};
+
 exports.post = (req, res, next) => {
     var product = new Product(req.body);
     product
