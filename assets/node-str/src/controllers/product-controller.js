@@ -82,7 +82,7 @@ exports.put = (req, res, next) => {
                 slug: req.body.slug
             }
         }).then(x => {
-            res.status(201).send({
+            res.status(200).send({
                 message: "PRODUTO ATUALIZADO COM SUCESSO!"
             });
         }).catch(e => {
@@ -93,6 +93,18 @@ exports.put = (req, res, next) => {
         });
 };
 
+// TODO - NÃO ESTÁ DELETANDO
 exports.delet = (req, res, next) => {
-    res.status(200).send(req.body);
+    Product
+        .findOneAndRemove(req.body.id)
+        .then(x => {
+            res.status(200).send({
+                message: "PRODUTO DELETADO COM SUCESSO!"
+            });
+        }).catch(e => {
+            res.status(400).send({
+                message: "FALHA AO DELETAR O PRODUTO",
+                data: e
+            });
+        });
 };
