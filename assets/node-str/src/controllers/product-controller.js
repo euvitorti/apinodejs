@@ -3,6 +3,7 @@
 // IMPORTANDO O SCHEMA
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
+const ValidationContract = require('../validators/fluent-validator');
 
 // LISTANDO TODOS OS PRODUTOS - BUSCAR TUDO
 exports.get = (req, res, next) => {
@@ -57,6 +58,17 @@ exports.getByTag = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
+    let contract = new ValidationContract();
+    contract.hasMinLen(req.body.title, 3, 'O TÍTULO DEVE CONTER PELO MENOS 3 CARACTERES');
+    contract.hasMinLen(req.body.slug, 3, 'O SLUG DEVE CONTER PELO MENOS 3 CARACTERES');
+    contract.hasMinLen(req.body.description, 3, 'A DESCRIÇÃO DEVE CONTER PELO MENOS 3 CARACTERES');
+
+    // SE OS DADOS FOREM INVÁLIDOS
+    if (!contract.isValid()) {
+        res.status(400).send(contract.errors()).end();
+        return;
+    };
+
     var product = new Product(req.body);
     product
         .save()
