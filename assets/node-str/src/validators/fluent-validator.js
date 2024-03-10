@@ -1,0 +1,55 @@
+'use strict';
+
+// LISTA DE ERROS
+let errors = [];
+
+function ValidationContract() {
+    errors = [];
+}
+
+ValidationContract.prototype.isRequired = (value, message) => {
+    if (!value || value.length <= 0) {
+        errors.push({ message: message });
+    };
+};
+
+
+ValidationContract.prototype.hasMinLen = (value, min, message) => {
+    if (!value || value.length < min) {
+        errors.push({ message: message });
+    };
+};
+
+ValidationContract.prototype.hasMaxLen = (value, max, message) => {
+    if (!value || value.length > max) {
+        errors.push({ message: message });
+    };
+};
+
+ValidationContract.prototype.isFixedLen = (value, len, message) => {
+    if (!value || value.length != len) {
+        errors.push({ message: message });
+    };
+};
+
+ValidationContract.prototype.isEmail = (value, message) => {
+    // TODO - EXPRESSÃO REGULAR
+    var reg = new RegExp(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
+    if (!reg.test(value)) {
+        errors.push({ message: message });
+    };
+};
+
+ValidationContract.prototype.hasMinLen = (value, min, message) => {
+    return errors;
+};
+
+ValidationContract.prototype.hasMinLen = (value, min, message) => {
+    errors = [];
+};
+
+ValidationContract.prototype.hasMinLen = (value, min, message) => {
+    return errors.length == 0;
+};
+
+module.exports = ValidationContract;
