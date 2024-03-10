@@ -94,7 +94,7 @@ exports.put = (req, res, next) => {
 };
 
 // TODO - NÃO ESTÁ DELETANDO
-exports.delet = (req, res, next) => {
+exports.delete = (req, res, next) => {
     Product
         .findOneAndRemove(req.body.id)
         .then(x => {
