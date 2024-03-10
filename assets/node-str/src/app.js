@@ -10,7 +10,7 @@ const app = express();
 const router = express.Router();
 
 // CONECTA AO BANCO - SUA URL PARA O MONGODB
-mongoose.connect('mongodb+srv://jvitorti03:4YYNgMMjhhy7FbXj@cluster0.av48chp.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect();
 
 // CARREGA OS MODELS
 const Product = require('./models/product');
