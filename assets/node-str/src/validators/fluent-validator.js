@@ -40,15 +40,15 @@ ValidationContract.prototype.isEmail = (value, message) => {
     };
 };
 
-ValidationContract.prototype.hasMinLen = (value, min, message) => {
+ValidationContract.prototype.errors = () => {
     return errors;
 };
 
-ValidationContract.prototype.hasMinLen = (value, min, message) => {
+ValidationContract.prototype.clear = () => {
     errors = [];
 };
 
-ValidationContract.prototype.hasMinLen = (value, min, message) => {
+ValidationContract.prototype.isValid = () => {
     return errors.length == 0;
 };
 
