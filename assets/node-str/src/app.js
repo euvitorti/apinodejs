@@ -14,6 +14,7 @@ mongoose.connect();
 
 // CARREGA OS MODELS
 const Product = require('./models/product');
+const Costumer = require('./models/costumer');
 
 // CARREGA AS ROTAS
 const indexRoute = require('./routes/index-route');
