@@ -14,18 +14,21 @@ mongoose.connect();
 
 // CARREGA OS MODELS
 const Product = require('./models/product');
-const Costumer = require('./models/costumer');
+const Custumer = require('./models/custumer');
 const Order = require('./models/order');
 
 // CARREGA AS ROTAS
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
+const custumerRoute = require('./routes/custumer-route');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 app.use('/', indexRoute);
 app.use('/products', productRoute);
+app.use('/customers', custumerRoute);
 
 module.exports = app;
