@@ -1,8 +1,8 @@
-global.SALT_KEY = 'sua chave do servidor';
+global.SALT_KEY = '';
 global.EMAIL_TMPL = '<strong>{0}</strong>';
 
 module.exports = {
-    connectionString: 'usa url do banco de dados',
-    sendgridkey: 'TBD',
+    connectionString: '',
+    sendgridkey: 'Site sendGrid - Crie uma chave api, copie e cole aqui',
     containerConnectionString: 'TBD'
 };
