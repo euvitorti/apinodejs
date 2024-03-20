@@ -1,8 +1,8 @@
-global.SALT_KEY = 'sue chave do servidor';
-global.EMAIL_TMPL = '<strong>{0}</strong>';
+global.SALT_KEY = 'sua chave privada ssh';
+global.EMAIL_TMPL = 'Hello <strong>{0}</strong>, welcome to Node Store';
 
 module.exports = {
-    connectionString: 'url do banco de dados',
-    sendgridkey: 'site sendgrid - cria uma cahve api, cola aqui',
+    connectionString: 'url do banco',
+    sendgridkey: 'site sendgrid - cria uma chave api',
     containerConnectionString: 'TBD'
 };
