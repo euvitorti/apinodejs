@@ -2,7 +2,6 @@
 
 const repository = require('../repositories/order-repository');
 const guid = require('guid');
-const { authenticate } = require('../customer-controller');
 const authService = require('../service/auth-service')
 
 exports.get = async (req, res, next) => {
